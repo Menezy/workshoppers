@@ -9,10 +9,6 @@ let ussdCode,
 
 
 function ussd(ussdkey){
-
-    console.log("Enter");
-
-    let ussdkey = document.querySelector("#dom-stdin").value;
     switch (ussdkey) {
         case "1":
         document.querySelector("#dom-stdout1").innerText = `1. N100`;
@@ -26,10 +22,10 @@ function ussd(ussdkey){
             document.querySelector("#dom-stdout3").innerText = `3. 400MB`;
         break;
         case "3":
-            console.log("Your balance is N0.00");
+            document.querySelector("#dom-stdout").innerText = "Your balance is N0.00";
         break;
         default:
-        document.querySelector("#dom-stdout").innerText = 'Invalid option';
+            document.querySelector("#dom-stdout").innerText = 'Invalid option';
         break;
     }
 }
@@ -38,10 +34,7 @@ function ussd(ussdkey){
 //conditional if
 
 (function(){
-
-   
-
-    document.querySelector("#btn-click").addEventListener('click', function(){
+        document.querySelector("#btn-click").addEventListener('click', function(){
         ussdCode = document.querySelector("#ussdcode").value;
 
         if(ussdCode == "*141#"){
@@ -50,7 +43,7 @@ function ussd(ussdkey){
             document.querySelector("#dom-stdout3").innerText = ` 2. Borrow Data`;
             document.querySelector("#dom-stdout4").innerText = ` 3. Check Balance`;
             document.querySelector("#btn-send").addEventListener('click', function(){
-                let ussdkey = document.querySelector("#dom-stdin").value;
+                let ussdkey = document.querySelector("#ussdkey").value;
                 ussd(ussdkey);
             })
         }else{
